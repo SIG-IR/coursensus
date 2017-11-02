@@ -1,0 +1,3 @@
+[submodule "slimerjs"]
+	path = slimerjs
+	url = git@github.com:laurentj/slimerjs.git
