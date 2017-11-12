@@ -83,7 +83,10 @@ events.init(page);
 	click('search-box');
 	// TODO: hard-coding, needs to be fixed
 	page.sendEvent('keypress', 'CS 225');
-	logging.warn(await pageloader.load(pressEnter, undefined));
+	logging.warn(await pageloader.load(async function() {
+		pressEnter();
+		await util.wait(5000);
+	}, undefined));
 
 	while (true) {
 		await util.wait(500);
