@@ -1,3 +1,6 @@
 [submodule "slimerjs"]
 	path = slimerjs
 	url = git@github.com:laurentj/slimerjs.git
+[submodule "libslimer"]
+	path = src/libslimer
+	url = https://github.com/zhuyifei1999/libslimer.git
