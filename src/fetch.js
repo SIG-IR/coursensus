@@ -73,6 +73,7 @@ events.init(page);
 
 	await page.open('https://piazza.com/class/i69uo2ijxwm4ql');
 
+	// TODO: wait a bit until the login field is fully loaded
 	click('email_field');
 	page.sendEvent('keypress', user_info.username);
 
@@ -104,6 +105,7 @@ events.init(page);
 	}
 
 
+	let finalTexts = [];
 	for (let ques of quesIds) {
 		console.log('Question: ' + ques);
 
@@ -122,7 +124,9 @@ events.init(page);
 		if (texts.length > 1) {
 			dic['Answer'] = texts[1];
 		}
-		fs.write('test.json', JSON.stringify(dic), 'w');
+		finalTexts.push(dic);
+		console.log(dic);
 		// TODO: scroll down the page for each question
 	}
+	fs.write('texts.json', JSON.stringify(finalTexts), 'w');
 }().catch((e)=> logging.error(e + '\n' + e.stack)));
